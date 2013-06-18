@@ -275,8 +275,8 @@ class Bundle(object):
                     filter_hash = (filter_,"deps")
                     if filter_deps is None:
                         # if not yet resolved, load from cache
-                        filter_deps = ctx.cache.get(filter_hash)
-                    else:
+                        filter_deps = ctx.cache.get(filter_hash) if ctx.cache else []
+                    elif ctx.cache:
                         ctx.cache.set(filter_hash, filter_deps)
                     if filter_deps:
                         resolved.extend(filter_deps)
