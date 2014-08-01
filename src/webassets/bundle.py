@@ -566,7 +566,7 @@ class Bundle(object):
         
         # Resolve deps second time and after building - in case filter
         # didn't know them before.
-        self.resolve_depends(env, True)
+        self.resolve_depends(ctx, True)
         
         return ret
 
